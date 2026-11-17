@@ -296,9 +296,18 @@ export function WriteFlow({ mode, topicId, draftId, initialText = '', tour = fal
   const canEmail = Boolean(d.analysis?.routing.method === 'email' && d.agentRunId);
   const forms = d.analysis?.routing.contacts.filter((c) => c.kind === 'form') || [];
   const contactSources = d.analysis?.sources.filter((s) => d.analysis?.routing.contacts.some((c) => c.kind === 'email' && c.sourceId === s.id)) || [];
+  const selectedVerifiedEmail = d.analysis?.routing.contacts.find((contact) => contact.kind === 'email'
+    && contact.value.toLowerCase() === (d.recipientEmail || '').trim().toLowerCase()
+    && d.analysis?.sources.find((source) => source.id === contact.sourceId)?.url === d.recipientSourceUrl);
   function mailFields() {
     return <div className="grid gap-3">
       {canEmail && <>
+        <div className="card grid gap-1" role="status">
+          <strong>{selectedVerifiedEmail ? 'Empfänger auf Kontaktseite belegt' : 'Empfänger vor Versand prüfen'}</strong>
+          <span className="break-all">{d.recipientEmail || 'Noch keine Adresse ausgewählt'}</span>
+          {d.recipientSourceUrl && <a href={d.recipientSourceUrl} className="text-sm underline break-all" target="_blank" rel="noreferrer">{selectedVerifiedEmail ? 'Beleg auf Kontaktseite ansehen' : 'Gewählte Kontaktquelle ansehen'} ↗</a>}
+          {!selectedVerifiedEmail && <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>Die Adresse wird nur verwendet, wenn sie auf der gewählten Kontaktseite steht. Vor dem Versand wird sie erneut abgerufen.</span>}
+        </div>
         <label className="grid gap-1"><span className="text-sm font-bold">Empfänger</span><input type="email" className="search-input !pl-4" value={d.recipientEmail || ''} disabled={deliveryLocked || Boolean(busy)} onChange={(e) => change({ recipientEmail: e.target.value })} /></label>
         <label className="grid gap-1"><span className="text-sm font-bold">Kontaktquelle</span><select className="search-input !pl-4" value={d.recipientSourceUrl || ''} disabled={deliveryLocked || Boolean(busy)} onChange={(e) => change({ recipientSourceUrl: e.target.value })}><option value="">Quelle auswählen</option>{contactSources.map((s) => <option key={s.id} value={s.url}>{s.title}</option>)}</select></label>
         {d.recipientSourceUrl && <a href={d.recipientSourceUrl} className="text-sm underline break-all" target="_blank" rel="noreferrer">Kontaktquelle ansehen ↗</a>}

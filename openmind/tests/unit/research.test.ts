@@ -36,8 +36,8 @@ describe('Recherche und Kontaktbelege', () => {
     vi.stubGlobal('fetch', vi.fn(async () => new Response('{}', { status: 503 })));
     await expect(runSearches(['Rath Mitte'])).rejects.toThrow('SearXNG');
   });
-  it('durchläuft fünf Agentenschritte mit gespeichertem Profilort, ohne Versand', async () => {
-    const answers = [result.research, result.routing, result.draft, result.guardian];
+  it('durchläuft sechs Agentenschritte mit gespeichertem Profilort, ohne Versand', async () => {
+    const answers = [result.research, result.routing, result.draft, result.guardian, result.participationReview];
     const calls: string[] = []; let i = 0;
     vi.stubGlobal('fetch', vi.fn(async (url: string, init?: RequestInit) => {
       calls.push(String(url));
@@ -52,7 +52,7 @@ describe('Recherche und Kontaktbelege', () => {
     }));
     const events: string[] = [];
     const r = await runApplication(original, (e) => { if (e.status === 'done') events.push(e.id); });
-    expect(events).toEqual(['intake', 'research', 'routing', 'draft', 'guardian']);
+    expect(events).toEqual(['intake', 'research', 'routing', 'draft', 'guardian', 'relevance']);
     expect(r.routing.method).toBe('email'); expect(r.guardian.pass).toBe(true);
     expect(calls.some((u) => u.includes('gmail'))).toBe(false);
     expect(calls.filter((u) => u.includes('/search?')).every((u) => new URL(u).searchParams.get('q')?.includes(original.location))).toBe(true);
@@ -96,6 +96,7 @@ describe('Recherche und Kontaktbelege', () => {
       { ...result.routing, recommendation: `Bitte prüfen: ${example.goal}.`, recommendationSourceIds: [1] },
       { ...result.draft, subject: generatedSubject, body: generatedBody },
       { ...result.guardian, alignment: { addressesProblem: true, includesDesiredChange: true, preservesUserPosition: true, inventedUserDetails: [] } },
+      result.participationReview,
     ];
     const modelInputs: { system: string; user: string }[] = []; let modelIndex = 0;
     vi.stubGlobal('fetch', vi.fn(async (url: string, init?: RequestInit) => {
@@ -111,7 +112,7 @@ describe('Recherche und Kontaktbelege', () => {
     const output = await runApplication(scenario, () => {});
     expect(output.draft.subject).toBe(example.generatedSubject);
     for (const term of example.expected) expect(output.draft.body.toLocaleLowerCase('de-DE')).toContain(term.toLocaleLowerCase('de-DE'));
-    expect(modelInputs).toHaveLength(4);
+    expect(modelInputs).toHaveLength(5);
     const draftInput = JSON.parse(modelInputs[2].user);
     expect(draftInput.userIntent.originalText).toBe(example.ownText);
     expect(draftInput.userIntent.problem).toBe(example.issue);
@@ -130,7 +131,7 @@ describe('Recherche und Kontaktbelege', () => {
     const vague = { ...result.draft, subject: 'Informationen zum Verkehr', body: 'Verkehrssicherheit ist in Städten wichtig. Viele Menschen nutzen Straßen und öffentliche Verkehrsmittel. Die Zuständigkeit hängt vom Ort ab.' };
     const corrected = { ...result.draft, subject: 'Sicherer Übergang zur Schule an der Musterstraße', body: 'Sehr geehrte Damen und Herren, an der Musterstraße fehlt ein sicherer Übergang zur Schule. Bitte prüfen Sie, ob ein sicherer Übergang eingerichtet werden kann. Bitte geben Sie mir Rückmeldung. Mit freundlichen Grüßen' };
     const failed = { ...result.guardian, pass: false, concerns: ['Der Entwurf greift das konkrete Anliegen nicht auf.'], alignment: { addressesProblem: false, includesDesiredChange: false, preservesUserPosition: true, inventedUserDetails: [] } };
-    const modelAnswers = [result.research, result.routing, vague, failed, corrected, result.guardian]; let i = 0;
+    const modelAnswers = [result.research, result.routing, vague, failed, corrected, result.guardian, result.participationReview]; let i = 0;
     vi.stubGlobal('fetch', vi.fn(async (url: string, init?: RequestInit) => {
       if (String(url).includes('/api/chat')) return Response.json({ model: result.model, message: { content: JSON.stringify(modelAnswers[i++]) } });
       if (String(url).includes('/search?')) return Response.json({ results: result.sources.map((s) => ({ title: s.title, url: s.url, content: s.snippet })) });
@@ -141,7 +142,7 @@ describe('Recherche und Kontaktbelege', () => {
       answers: { ort: 'Musterstraße', ziel: 'Sicheren Übergang zur Schule prüfen' },
       intent: { ...result.intake, issue: 'Sicherer Übergang zur Schule an der Musterstraße', goal: 'Sicheren Übergang zur Schule prüfen', explicitLocation: '', needsExactLocation: true, openQuestions: [] } }, () => {});
     expect(output.draft.body).toBe(corrected.body);
-    expect(i).toBe(6);
+    expect(i).toBe(7);
   });
 
   it('ersetzt einen trotz falschem Guardian-Pass allgemeinen Entwurf durch eine Vorlage aus Nutzereingaben', async () => {
@@ -149,7 +150,7 @@ describe('Recherche und Kontaktbelege', () => {
     const intent = { ...result.intake, issue: 'Regelmäßiger Uringeruch an der Haltestelle Rath Mitte', goal: 'Häufigere Reinigung und Prüfung der Ursache', explicitLocation: 'Rath Mitte', confirmedDetails: ['Der Geruch wird regelmäßig wahrgenommen.'], openQuestions: [] };
     const vague = { ...result.draft, subject: 'Verkehr und Sauberkeit in Düsseldorf', body: 'Sauberkeit ist für die Aufenthaltsqualität an Haltestellen wichtig. Zuständig können je nach Ort unterschiedliche Stellen sein. Die Haltestelle wird vom Verkehrsverbund Rhein-Ruhr (VRS) betreut. Bitte informieren Sie sich auf den jeweiligen Webseiten.' };
     const dishonestPass = { ...result.guardian, pass: true, quality: { repetitive: true, quotedOriginal: true, fieldLabels: true, unnaturalFormulation: true }, alignment: { addressesProblem: true, includesDesiredChange: true, preservesUserPosition: true, inventedUserDetails: [] } };
-    const answers = [result.research, result.routing, vague, dishonestPass, vague, dishonestPass, result.guardian]; let i = 0;
+    const answers = [result.research, result.routing, vague, dishonestPass, vague, dishonestPass, result.guardian, result.participationReview]; let i = 0;
     vi.stubGlobal('fetch', vi.fn(async (url: string) => {
       if (String(url).includes('/api/chat')) return Response.json({ model: result.model, message: { content: JSON.stringify(answers[i++]) } });
       if (String(url).includes('/search?')) return Response.json({ results: result.sources.map((s) => ({ title: s.title, url: s.url, content: s.snippet })) });
@@ -168,7 +169,7 @@ describe('Recherche und Kontaktbelege', () => {
     expect(output.guardian.pass).toBe(true);
     expect(output.guardian.alignment).toMatchObject({ addressesProblem: true, includesDesiredChange: true, preservesUserPosition: true, inventedUserDetails: [] });
     expect(output.guardian.quality).toMatchObject({ repetitive: false, quotedOriginal: false, fieldLabels: false, unnaturalFormulation: false });
-    expect(i).toBe(7);
+    expect(i).toBe(8);
   });
 
   it('stoppt bei fehlender Straße und fehlendem Wunsch, ohne Suchanfrage oder Entwurf', async () => {

@@ -1,7 +1,7 @@
 # Architektur
 ```
 app/api/agents/[name]     geschützte bestehende Kim-Agenten
-app/api/agents/application fünf lokale Recherche- und Schreibschritte als SSE
+app/api/agents/application sechs lokale Recherche- und Schreibschritte als SSE
 app/api/mail/*            Gmail-OAuth, Kontostatus, Entwurf prüfen
 app/api/submissions       explizit bestätigter Gmail-Versand
 agents/                   Chat-, Abwäge-, Erklär- und Faktencheck-Agenten
@@ -14,7 +14,9 @@ features/write            vorhandener Schrittablauf, editierbare Nutzer-/KI-Wort
 
 ## Recherche und Entwurf
 
-Der Schreibablauf ist ein eigenständiger fünfstufiger Lauf: Anliegen aus den eigenen Angaben aufnehmen, Quellen zu Anliegen/Ort recherchieren, zuständige Stelle und mögliche Schritte mit Rechtsgrundlagen prüfen, begründete Nachricht erstellen und diese durch einen zweiten Guardian prüfen. SearXNG erhält Suchbegriffe mit Profilort. Der lokale Ollama-Server erhält den vollständigen nötigen Kontext. Die UI zeigt je Stufe das zurückgegebene lokale Modell. Quellen dürfen keine Anweisungen für den Agenten erteilen.
+Der Schreibablauf ist ein eigenständiger sechsstufiger Lauf: Anliegen aus den eigenen Angaben aufnehmen, Quellen zu Anliegen/Ort recherchieren, zuständige Stelle und mögliche Schritte mit Rechtsgrundlagen prüfen, begründete Nachricht erstellen, diese durch einen zweiten Guardian prüfen und anschließend Informationen aus Sicht politischer Beteiligung filtern. Der letzte Agent darf keine Inhalte erfinden oder verändern, sondern wählt ausschließlich bereits recherchierte Punkte und Quellen aus. Belegte Kontakte und Quellen der Zuständigkeit, Empfehlung, Rechtsgrundlage sowie Zitate bleiben unabhängig davon in der Ergebnisansicht. SearXNG erhält Suchbegriffe mit Profilort. Der lokale Ollama-Server erhält den nötigen Kontext. Die UI zeigt je Stufe das zurückgegebene lokale Modell. Quellen dürfen keine Anweisungen für den Agenten erteilen.
+
+Für Anliegen zu Bahnhöfen der Deutschen Bahn wird die offizielle DB-Info-Kontaktseite gezielt geladen und der E-Mail-Kontext neben der gefundenen Adresse gespeichert. Die dort ausgewiesene Adresse für Feedback zu Bahnhöfen wird als Empfänger übernommen. Die allgemeine Versandprüfung ruft die gewählte Kontaktseite vor jeder Freigabe erneut ab.
 
 Kontakte und Gesetze bekommen nur Quellen-IDs aus dem ermittelten Korpus. Vor dem Versand ruft der Server die Kontaktseite nochmals direkt auf und vergleicht die Adresse. Bei Formular-only gibt es nur den amtlichen Formularlink. Änderungen am Anliegen oder Profil ändern den Recherche-Fingerabdruck. Der ein Stunden lange Recherchecache gilt ausschließlich für dieselbe Eingabe und denselben Standort.
 

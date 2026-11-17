@@ -1,5 +1,5 @@
 import { z } from 'zod';
-export interface Source { id: number; title: string; url: string; snippet: string; text?: string; emails?: string[]; links?: string[]; checkedAt: string }
+export interface Source { id: number; title: string; url: string; snippet: string; text?: string; emails?: string[]; emailEvidence?: string[]; links?: string[]; checkedAt: string }
 const strings = z.array(z.string().max(500)).max(20).default([]);
 const ids = z.array(z.number().int()).max(8).default([]);
 export const intakeQuestionSchema = z.object({
@@ -24,6 +24,7 @@ export const routingSchema = z.object({
   office: z.object({ name: z.string().max(160), reason: z.string().max(500), sourceIds: ids }),
   recommendation: z.string().max(600), recommendationSourceIds: ids, method: z.enum(['email', 'form', 'unknown']),
   contacts: z.array(z.object({ kind: z.enum(['email', 'form', 'phone']), value: z.string().max(300), sourceId: z.number().int(), purpose: z.string().max(180) })).max(10),
+  unverifiedContacts: z.array(z.object({ value: z.string().max(300), sourceId: z.number().int(), purpose: z.string().max(180) })).max(10).default([]),
   options: z.array(z.object({ title: z.string().max(160), description: z.string().max(500), tradeoff: z.string().max(300), sourceIds: ids })).max(5),
   laws: z.array(z.object({ citation: z.string().max(180), relevance: z.string().max(500), limit: z.string().max(300), sourceIds: ids })).max(6),
   requirements: z.array(z.object({ title: z.string().max(160), detail: z.string().max(500), required: z.boolean(), sourceIds: ids })).max(8),
@@ -46,6 +47,13 @@ export const guardianSchema = z.object({
     inventedUserDetails: strings,
   }).default({ addressesProblem: false, includesDesiredChange: false, preservesUserPosition: false, inventedUserDetails: [] }),
 });
+export const participationReviewSchema = z.object({
+  findingIndexes: z.array(z.number().int().min(0).max(40)).max(12).default([]),
+  optionIndexes: z.array(z.number().int().min(0).max(40)).max(8).default([]),
+  lawIndexes: z.array(z.number().int().min(0).max(40)).max(8).default([]),
+  requirementIndexes: z.array(z.number().int().min(0).max(40)).max(10).default([]),
+  sourceIds: z.array(z.number().int().positive().max(1000)).max(16).default([]),
+});
 export type UserIntent = z.infer<typeof intakeSchema>;
 export interface ApplicationInput {
   title: string; ownText: string; answers: Record<string, string>; procedureId: string; topicId?: string; counter?: string; name: string;
@@ -53,12 +61,12 @@ export interface ApplicationInput {
   profileLocation?: string; location: string; locationSource?: 'profile' | 'user'; postalCode: string;
   intent?: UserIntent; intentModel?: string;
 }
-export type StageId = 'intake' | 'research' | 'routing' | 'draft' | 'guardian';
+export type StageId = 'intake' | 'research' | 'routing' | 'draft' | 'guardian' | 'relevance';
 export interface StageEvent { type: 'stage'; id: StageId; name: string; status: 'working' | 'done'; model: string }
 export interface ApplicationResult {
   location: string; model: string; sources: Source[]; checkedAt: string;
   intake: z.infer<typeof intakeSchema>; research: z.infer<typeof researchSchema>;
   routing: z.infer<typeof routingSchema>; draft: z.infer<typeof draftSchema>;
-  guardian: z.infer<typeof guardianSchema>;
+  guardian: z.infer<typeof guardianSchema>; participationReview: z.infer<typeof participationReviewSchema>; participationReviewModel: string;
 }
 

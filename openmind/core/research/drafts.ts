@@ -20,7 +20,7 @@ export type DraftContent = z.infer<typeof draftContent>;
 export const digest = (value: unknown) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 // The workflow version is part of every cache/send fingerprint. Bump it whenever
 // interpretation, evidence selection, or the final-draft safety checks change.
-export const applicationFingerprint = (input: ApplicationInput) => digest({ workflow: 'user-intent-v4', input });
+export const applicationFingerprint = (input: ApplicationInput) => digest({ workflow: 'user-intent-v6', input });
 export function applicationInput(draft: typeof schema.drafts.$inferSelect, profile: typeof schema.profiles.$inferSelect, name: string | null): ApplicationInput {
   const c = draftContent.parse(draft.content);
   const answers = Object.fromEntries(Object.entries(c.answers).sort(([a], [b]) => a.localeCompare(b)));

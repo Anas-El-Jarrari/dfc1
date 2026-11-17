@@ -25,7 +25,7 @@ function decode(text: string) {
   return text.replace(/&#(x[0-9a-f]+|\d+);/gi, (_, n: string) => { const code = n[0].toLowerCase() === 'x' ? parseInt(n.slice(1), 16) : Number(n); return code > 0 && code <= 0x10ffff ? String.fromCodePoint(code) : ''; })
     .replace(/&commat;/gi, '@').replace(/&period;/gi, '.').replace(/&amp;/gi, '&').replace(/&quot;/gi, '"').replace(/&nbsp;/gi, ' ');
 }
-export async function readPublicPage(url: string, signal?: AbortSignal): Promise<{ text: string; emails: string[]; links: string[] }> {
+export async function readPublicPage(url: string, signal?: AbortSignal): Promise<{ text: string; emails: string[]; emailEvidence: string[]; links: string[] }> {
   for (let redirects = 0; redirects <= 3; redirects++) {
     await ensurePublic(url);
     const response = await fetch(url, { redirect: 'manual', cache: 'no-store', signal: AbortSignal.any([AbortSignal.timeout(12000), ...(signal ? [signal] : [])]), headers: { accept: 'text/html,text/plain', 'user-agent': 'OpenMind/1.0 (contact source verification)' } });
@@ -37,8 +37,18 @@ export async function readPublicPage(url: string, signal?: AbortSignal): Promise
     while (true) { const { value, done } = await reader.read(); if (done) break; size += value.length; if (size > 1_000_000) { await reader.cancel(); throw new Error('Quellseite ist zu groß.'); } chunks.push(value); }
     const html = decode(Buffer.concat(chunks).toString('utf8')).replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, '');
     const emails = [...new Set((html.match(/[a-z0-9.!#$%&'*+/=?^_\x60{|}~-]+@[a-z0-9.-]+\.[a-z]{2,}/gi) || []).map((x) => x.toLowerCase()))];
+    const pageText = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    const emailEvidence = emails.map((email) => {
+      const plainIndex = pageText.toLowerCase().indexOf(email);
+      if (plainIndex >= 0) return pageText.slice(Math.max(0, plainIndex - 220), Math.min(pageText.length, plainIndex + email.length + 220));
+      // Some official pages expose the address only in a mailto link; retain
+      // its nearby heading/link context so the route can be classified safely.
+      const htmlIndex = html.toLowerCase().indexOf(email);
+      return htmlIndex < 0 ? '' : html.slice(Math.max(0, htmlIndex - 500), Math.min(html.length, htmlIndex + email.length + 500))
+        .replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    }).filter(Boolean).slice(0, 8);
     const links = [...html.matchAll(/href=["']([^"']+)["']/gi)].flatMap((m) => { try { const target = publicUrl(new URL(m[1], url).href); return target ? [target] : []; } catch { return []; } });
-    return { text: html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 12000), emails, links };
+    return { text: pageText.slice(0, 12000), emails, emailEvidence, links };
   }
   throw new Error('Zu viele Weiterleitungen in der Kontaktquelle.');
 }
@@ -75,7 +85,8 @@ export async function enrichSources(sources: Source[], signal?: AbortSignal) {
 export function sourceContext(sources: Source[], options: { maxSources?: number; maxChars?: number } = {}) {
   const maxSources = options.maxSources ?? 8, maxChars = options.maxChars ?? 1500;
   return sources.length ? sources.slice(0, maxSources).map((s) => '[' + s.id + '] ' + s.title + '\n' + s.url + '\n'
-    + (s.text || s.snippet).slice(0, maxChars) + '\nBelegte E-Mail-Adressen: ' + (s.emails || []).join(', ')).join('\n\n')
+    + (s.text || s.snippet).slice(0, maxChars) + '\nBelegte E-Mail-Adressen: ' + (s.emails || []).join(', ')
+    + ((s.emailEvidence || []).length ? '\nKontext zur E-Mail-Adresse: ' + s.emailEvidence!.join(' | ').slice(0, 900) : '')).join('\n\n')
     : 'Keine belastbaren Quellen. Keine Kontakte, Rechtsnormen oder lokalen Tatsachen erfinden.';
 }
 export async function verifyRecipient(email: string, sourceUrl: string, sources: Source[]) {

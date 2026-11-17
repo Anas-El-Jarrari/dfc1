@@ -21,12 +21,13 @@ export const result: ApplicationResult = {
     snippet: 'Hinweise zur Sauberkeit: reinigung@station.example.org.', text: 'Hinweise zur Sauberkeit: reinigung@station.example.org.',
     emails: ['reinigung@station.example.org', 'service@station.example.org'], links: ['https://station.example.org/formular'], checkedAt: '2026-11-17T12:00:00.000Z' }],
   routing: { office: { name: 'Bahnhofsmanagement', reason: 'Betreiber des Bahnhofs', sourceIds: [1] }, recommendation: 'Bitte um Prüfung und Reinigung.', recommendationSourceIds: [1],
-    method: 'email', contacts: [{ kind: 'email', value: 'reinigung@station.example.org', sourceId: 1, purpose: 'Sauberkeit melden' }],
+    method: 'email', contacts: [{ kind: 'email', value: 'reinigung@station.example.org', sourceId: 1, purpose: 'Sauberkeit melden' }], unverifiedContacts: [],
     options: [{ title: 'Sauberkeit melden', description: 'Beobachtung an den Betreiber senden.', tradeoff: 'Die Ursache ist noch unklar.', sourceIds: [1] }],
     laws: [], requirements: [{ title: 'Genaue Stelle', detail: 'Eingang oder Bahnsteig nennen.', required: false, sourceIds: [1] }], verificationNeeded: [] },
   draft: { subject: 'Bitte um Prüfung: Regelmäßiger Uringeruch an der Haltestelle Düsseldorf Rath Mitte', body: 'Sehr geehrte Damen und Herren,\n\nan der Haltestelle Düsseldorf Rath Mitte riecht es regelmäßig nach Urin.\n\nBitte veranlassen Sie eine Reinigung und prüfen Sie die Ursache. Über eine kurze Rückmeldung würde ich mich freuen.\n\nMit freundlichen Grüßen\nMira', counterposition: 'Regelmäßige Reinigung kann erneute Verschmutzung nicht ausschließen.' },
   guardian: { pass: true, concerns: [], unsupportedClaims: [], missingDraftElements: [], counterposition: 'Reinigungen sind Personal- und Kostenfragen.',
     quality: { repetitive: false, quotedOriginal: false, fieldLabels: false, unnaturalFormulation: false },
     alignment: { addressesProblem: true, includesDesiredChange: true, preservesUserPosition: true, inventedUserDetails: [] } },
+  participationReview: { findingIndexes: [0], optionIndexes: [0], lawIndexes: [], requirementIndexes: [0], sourceIds: [1] }, participationReviewModel: 'qwen3:8b',
 };
 

@@ -46,7 +46,8 @@ Dokumentation: [Google OAuth für Webserver](https://developers.google.com/ident
 
 1. Unter **Mitmachen → Etwas verändern** oder auf einer Themenseite beginnen. Kim übernimmt Ort/Stadtteil aus dem Profil; fehlenden Ort unter „Ich“ ergänzen.
 2. Eigene Beobachtung und Ziel eingeben. Die bestehende Verfahrensauswahl bleibt ein erster Vorschlag.
-3. Fünf Schritte: Anliegen aufnehmen → SearXNG-Recherche → Zuständigkeit, Kontakte und Möglichkeiten → begründeter Nachrichtentwurf → unabhängiger Ethics Guardian. Fakten, Rechtsgrundlagen, Einschränkungen und Gegenposition werden mit Quellen dargestellt. Fotos/Unterlagen gelten nur bei einem Beleg als Pflicht.
+3. Sechs Agentenschritte: Anliegen aufnehmen → SearXNG-Recherche → Zuständigkeit, Kontakte und Möglichkeiten → begründeter Nachrichtentwurf → unabhängiger Ethics Guardian → abschließender Beteiligungsblick, der irrelevante Quellen und Punkte aus der Ergebnisansicht filtert. Belegte Kontakte, Zuständigkeit und für den nächsten Schritt nötige Belege bleiben sichtbar.
+   Bei Anliegen zu einem DB-Bahnhof prüft die Recherche zusätzlich die offizielle DB-Info-Kontaktseite. Eine Adresse wird nur übernommen, wenn sie direkt auf der geladenen Quellseite gefunden wird. Die Versandprüfung lädt diese Kontaktseite erneut.
 4. Empfänger, Kontaktquelle, Betreff und vollständigen Text prüfen und bearbeiten. Die App prüft die gewählte Adresse auf der recherchierten Kontaktseite erneut. Änderungen am Text werden erneut vom Guardian geprüft. Die Kontaktquelle kann innerhalb der recherchierten Empfängerseiten gewechselt werden; für andere Quellen neu recherchieren.
 5. Vorschau öffnen, Prüfung ausdrücklich bestätigen und **Wischen zum Senden** (auch per Tastatur erreichbar). Gmail sendet genau den freigegebenen Betreff/Text vom verbundenen Konto an den sichtbaren Empfänger. **Kein Testmodus, keine Umleitung und keine versteckten Kopie-Empfänger.**
 6. Bei ausschließlich belegtem Onlineformular: Text kopieren und offiziellen Formularlink öffnen. Es gibt dafür keinen Gmail-Versand.
@@ -74,7 +75,7 @@ Die Prüfungen decken u. a. JSON-Fehler, Kontaktbelege, Formularwege, Guardian-B
 ## Aufbau und Grenzen
 
 - `core/ai`: ausschließlich Ollama, JSON-Schema und begrenzte Wiederholung bei fehlerhafter Antwort.
-- `core/research`: Recherche, fünf Agentenschritte, Quellseitenprüfung und Bindung an das aktuelle Profil/Anliegen.
+- `core/research`: Recherche, sechs Agentenschritte einschließlich abschließendem Beteiligungsblick, Quellseitenprüfung und Bindung an das aktuelle Profil/Anliegen.
 - `core/gmail`: OAuth, verschlüsselte Konten, Prüfungen, MIME-Nachricht und dauerhafte Versandzustände.
 - `features/write`: vorhandenes Design, Schrittansichten, eigene/ KI-Worte, bearbeitbare Vorschau.
 - `agents`: vorhandene Chat-, Abwäge-, Erklär- und Faktencheck-Funktionen laufen ebenfalls über Ollama.
