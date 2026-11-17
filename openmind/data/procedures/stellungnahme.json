@@ -1,0 +1,19 @@
+{
+  "id": "stellungnahme",
+  "kind": "stellungnahme",
+  "title": "Stellungnahme zu einem Verfahren",
+  "short": "Öffentliche Beteiligung",
+  "level": "stadt",
+  "legalBasis": "Öffentliche Beteiligung im laufenden Verfahren",
+  "recipientHint": "Die im Verfahren genannte Stelle",
+  "officialUrl": "https://www.duesseldorf.de/rat",
+  "explain": "Deine Sicht auf ein laufendes Vorhaben. Sie geht in die Abwägung ein, bevor entschieden wird.",
+  "keywords": [],
+  "fields": [
+    { "key": "betroffen", "label": "Wie bist du betroffen?", "question": "Wie betrifft dich das Vorhaben?", "placeholder": "z. B. ich wohne an der Straße", "chips": ["Ich wohne dort", "Ich arbeite dort", "Ich bin dort oft unterwegs"] },
+    { "key": "vorschlag", "label": "Dein Vorschlag", "question": "Was schlägst du vor?", "placeholder": "", "chips": [] }
+  ],
+  "salutation": "Sehr geehrte Damen und Herren,",
+  "opening": "zu dem unten genannten Vorhaben gebe ich folgende Stellungnahme ab.",
+  "closing": "Ich bitte darum, meine Stellungnahme in der Abwägung zu berücksichtigen."
+}

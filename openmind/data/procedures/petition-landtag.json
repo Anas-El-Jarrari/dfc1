@@ -1,0 +1,20 @@
+{
+  "id": "petition-landtag",
+  "kind": "petition",
+  "title": "Petition an den Landtag NRW",
+  "short": "Art. 17 GG, Art. 41a LV NRW",
+  "level": "land",
+  "legalBasis": "Artikel 17 Grundgesetz, Artikel 41a Landesverfassung NRW",
+  "recipientHint": "Petitionsausschuss des Landtags Nordrhein-Westfalen",
+  "officialUrl": "https://www.landtag.nrw.de/home/petitionen.html",
+  "explain": "Für Landesthemen wie Schule, Polizei, Pflege oder Landesbehörden. Der Petitionsausschuss prüft jede Eingabe.",
+  "keywords": ["schule", "lehrer", "polizei", "land", "nrw", "landesregierung", "pflege", "krankenhaus", "hochschule", "uni", "landesbehörde", "ministerium", "abitur", "kitagesetz"],
+  "fields": [
+    { "key": "stelle", "label": "Welche Stelle?", "question": "Welche Behörde oder Einrichtung ist zuständig?", "placeholder": "z. B. Schulamt, Bezirksregierung", "chips": ["Weiß ich nicht"] },
+    { "key": "bisher", "label": "Bisher versucht", "question": "Hast du dich schon an die Stelle gewandt?", "placeholder": "", "chips": ["Ja, ohne Erfolg", "Nein, noch nicht"] },
+    { "key": "ziel", "label": "Was soll passieren?", "question": "Was soll der Landtag erreichen?", "placeholder": "", "chips": [] }
+  ],
+  "salutation": "Sehr geehrte Damen und Herren des Petitionsausschusses,",
+  "opening": "hiermit reiche ich gemäß Artikel 17 des Grundgesetzes und Artikel 41a der Landesverfassung NRW folgende Petition ein.",
+  "closing": "Ich bitte um Prüfung meines Anliegens und um eine schriftliche Antwort."
+}

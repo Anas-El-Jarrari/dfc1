@@ -1,0 +1,48 @@
+{
+  "id": "ganztagsplaetze-grundschulen",
+  "title": "Ganztagsplätze an Grundschulen",
+  "shortTitle": "Ganztagsplätze",
+  "level": "land",
+  "location": "NRW",
+  "tags": ["Kinder", "Bildung"],
+  "deadline": "2026-12-12",
+  "deadlineText": "Anhörung im Landtag am 12.12.",
+  "ampel": "yellow",
+  "ampelText": "schwer umkehrbar – strukturelle Schulreform",
+  "stats": {"pro": 61, "contra": 27, "neutral": 12, "total": 3902},
+  "decisionMaker": "NRW Landtag, Ausschuss für Schule und Bildung",
+  "blick2050": {
+    "summary": "Bessere Bildungsinfrastruktur wirkt langfristig auf Bildungsgerechtigkeit.",
+    "details": [
+      "Ganztagsbetreuung erhöht Erwerbsquote von Müttern um bis zu 15 % (Studie IZA, Beispiel)",
+      "Langfristig weniger Bildungsungleichheit laut OECD-Vergleich (Beispiel)"
+    ],
+    "label": "Daten, keine Empfehlung"
+  },
+  "corpus": [
+    {
+      "id": "1",
+      "title": "Referentenentwurf Schulgesetz NRW",
+      "text": "Ab dem Schuljahr 2026/27 haben Kinder in NRW einen Rechtsanspruch auf einen Ganztagsbetreuungsplatz ab Klasse 1. Die Kommunen sind verpflichtet, ausreichend Plätze zu schaffen.",
+      "source": "Referentenentwurf 2. Schulrechtsänderungsgesetz NRW, § 24a (Beispiel)"
+    },
+    {
+      "id": "2",
+      "title": "Kommunaler Spitzenverband NRW",
+      "text": "Der kommunale Spitzenverband schätzt den Investitionsbedarf auf 2,1 Milliarden Euro in NRW. Viele Kommunen sehen die Frist als nicht realistisch an.",
+      "source": "Kommunaler Spitzenverband NRW, Stellungnahme Oktober 2026 (Beispiel)"
+    },
+    {
+      "id": "3",
+      "title": "Bertelsmann Stiftung",
+      "text": "Laut Bertelsmann Stiftung fehlen in NRW noch 85.000 Ganztagsplätze. Besonders betroffen sind Kommunen in strukturschwachen Regionen.",
+      "source": "Bertelsmann Stiftung, Ländermonitor 2026 (Beispiel)"
+    },
+    {
+      "id": "4",
+      "title": "Elterninitiativen NRW",
+      "text": "Elterninitiativen berichten von langen Wartelisten und fehlenden Lösungen für Schichtarbeiter*innen. Die Öffnungszeiten der meisten OGS enden um 16:00 Uhr.",
+      "source": "Bündnis Ganztagsschule NRW, Umfrage 2026 (Beispiel)"
+    }
+  ]
+}

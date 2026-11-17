@@ -1,0 +1,42 @@
+{
+  "id": "platanen-faellung",
+  "title": "Fällung von 14 Platanen",
+  "shortTitle": "Platanen Fällung",
+  "level": "stadt",
+  "location": "Düsseldorf-Bilk",
+  "tags": ["Umwelt", "Stadtgrün"],
+  "deadline": "2026-11-28",
+  "ampel": "red",
+  "ampelText": "irreversibel – gefällte Bäume wachsen nicht zurück",
+  "stats": {"pro": 23, "contra": 71, "neutral": 6, "total": 2341},
+  "decisionMaker": "Stadtrat Düsseldorf, Umweltausschuss",
+  "blick2050": {
+    "summary": "Alte Platanen sind Klimaschutzanlagen: je älter, desto mehr CO₂ binden sie.",
+    "details": [
+      "Eine 80-jährige Platane bindet ca. 22 kg CO₂/Jahr – mehr als 10 junge Bäume (Beispiel)",
+      "Hitzeinseln: Baumverlust erhöht Sommertemperaturen lokal um bis zu 4°C (Beispiel)",
+      "Ersatzpflanzungen erreichen denselben Klimaeffekt erst in 40–60 Jahren (Beispiel)"
+    ],
+    "label": "Daten, keine Empfehlung"
+  },
+  "corpus": [
+    {
+      "id": "1",
+      "title": "Baumgutachten Bauamt",
+      "text": "Das Bauamt stellt fest, dass 14 Platanen an der Corneliusstraße durch einen Pilzbefall (Massaria-Erkrankung) strukturell geschwächt sind. Bei Sturm bestehe Bruchgefahr.",
+      "source": "Baumgutachten Bauamt Düsseldorf, September 2026 (Beispiel)"
+    },
+    {
+      "id": "2",
+      "title": "Gegengutachten BUND NRW",
+      "text": "Ein Gegengutachten im Auftrag des BUND NRW kommt zu dem Ergebnis, dass 9 der 14 Bäume mit einem Sicherungsschnitt gerettet werden könnten. Kosten: ca. 48.000 Euro.",
+      "source": "BUND NRW, Gegengutachten Oktober 2026 (Beispiel)"
+    },
+    {
+      "id": "3",
+      "title": "Klimagutachten Stadt",
+      "text": "Die 14 Platanen sind Teil des städtischen Hitze-Aktionsplans. Ihr Verlust würde die Kühlleistung im Quartier um 15 % reduzieren.",
+      "source": "Klimaanpassungskonzept Düsseldorf 2025, S. 34 (Beispiel)"
+    }
+  ]
+}

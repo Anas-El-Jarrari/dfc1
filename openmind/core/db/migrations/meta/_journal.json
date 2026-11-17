@@ -1,0 +1,21 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1794760407999,
+      "tag": "0000_volatile_molecule_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1794761001218,
+      "tag": "0001_friendly_jimmy_woo",
+      "breakpoints": true
+    },
+    { "idx": 2, "version": "6", "when": 1794900000000, "tag": "0002_local_agents_gmail", "breakpoints": true }
+  ]
+}

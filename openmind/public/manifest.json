@@ -1,0 +1,9 @@
+{
+  "name": "OpenMind – Deine Stimme. Deine Entscheidung.",
+  "short_name": "OpenMind",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF6EF",
+  "theme_color": "#A84F33",
+  "icons": [{ "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon" }]
+}

@@ -1,0 +1,90 @@
+{
+  "checkedAt": "2026-11-15",
+  "note": "Echte, offizielle Einstiege. Mitzeichnen und Anmelden passiert immer auf der Original-Seite; OpenMind leitet nur weiter. Jeder Link wird beim Abruf geprüft.",
+  "items": [
+    {
+      "id": "bundestag-mitzeichnen",
+      "type": "petition",
+      "source": "epetitionen",
+      "title": "Petitionen im Bundestag mitzeichnen",
+      "summary": "Öffentliche Petitionen, die gerade Unterschriften sammeln.",
+      "url": "https://epetitionen.bundestag.de/epet/petuebersicht/mz.nc.html",
+      "region": "Bund",
+      "deadline": "2026-12-30",
+      "deadlineNote": "Das Portal wird am 30.12.2026 abgeschaltet; neue Petitionen nur bis 18.11.2026.",
+      "topics": [],
+      "live": "bundestag-count"
+    },
+    {
+      "id": "landtag-nrw-petition",
+      "type": "petition",
+      "source": "landtag-nrw",
+      "title": "Petition an den Landtag NRW",
+      "summary": "Bitten und Beschwerden zu Landesthemen, z. B. Schule, Polizei, Pflege.",
+      "url": "https://www.landtag.nrw.de/home/petitionen.html",
+      "region": "NRW",
+      "topics": ["Bildung", "Gesundheit", "Kinder"]
+    },
+    {
+      "id": "duesseldorf-anregungen",
+      "type": "beteiligung",
+      "source": "duesseldorf",
+      "title": "Anregung oder Beschwerde an die Stadt (§ 24 GO NRW)",
+      "summary": "Jede Person kann sich mit Anregungen an den Rat wenden. Kim hilft dir beim Schreiben.",
+      "url": "https://www.duesseldorf.de/anregungen-und-beschwerden",
+      "region": "Düsseldorf",
+      "topics": ["Verkehr", "Wohnen", "Klima", "Kinder"],
+      "inApp": "/mitmachen/antrag"
+    },
+    {
+      "id": "duesseldorf-rat",
+      "type": "beteiligung",
+      "source": "duesseldorf",
+      "title": "Rat der Stadt: Sitzungen und Beschlüsse",
+      "summary": "Was der Rat entscheidet und wann er öffentlich tagt.",
+      "url": "https://www.duesseldorf.de/rat",
+      "region": "Düsseldorf",
+      "topics": []
+    },
+    {
+      "id": "duesseldorf-ehrenamtsportal",
+      "type": "ehrenamt",
+      "source": "duesseldorf",
+      "title": "Ehrenamt finden in Düsseldorf",
+      "summary": "Das Ehrenamtsportal der Stadt vermittelt Einsätze nach Interesse und Zeit.",
+      "url": "https://www.duesseldorf.de/freiwillig/ehrenamtsportal",
+      "region": "Düsseldorf",
+      "topics": ["Kinder", "Gesundheit", "Klima", "Bildung"]
+    },
+    {
+      "id": "duesseldorf-engagement",
+      "type": "ehrenamt",
+      "source": "duesseldorf",
+      "title": "Büro für Bürgerschaftliches Engagement",
+      "summary": "Beratung, wenn du dich engagieren willst oder ein Projekt hast.",
+      "url": "https://www.duesseldorf.de/freiwillig",
+      "region": "Düsseldorf",
+      "topics": []
+    },
+    {
+      "id": "duesseldorf-ehrenamtskarte",
+      "type": "ehrenamt",
+      "source": "duesseldorf",
+      "title": "Ehrenamtskarte NRW beantragen",
+      "summary": "Vergünstigungen für alle, die sich regelmäßig engagieren.",
+      "url": "https://www.duesseldorf.de/freiwillig/ehrenamtskarte",
+      "region": "Düsseldorf",
+      "topics": []
+    },
+    {
+      "id": "openpetition",
+      "type": "petition",
+      "source": "openpetition",
+      "title": "Bürger-Petitionen auf openPetition",
+      "summary": "Zivilgesellschaftliche Plattform, nicht amtlich. Petitionen von Bürger*innen für Bund, Land und Kommune.",
+      "url": "https://www.openpetition.de/",
+      "region": "Bund",
+      "topics": []
+    }
+  ]
+}

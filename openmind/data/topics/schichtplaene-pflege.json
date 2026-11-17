@@ -1,0 +1,27 @@
+{
+  "id": "schichtplaene-pflege",
+  "title": "Verlässliche Schichtpläne in der Pflege",
+  "shortTitle": "Schichtpläne Pflege",
+  "level": "bund",
+  "location": "Bund",
+  "tags": ["Arbeit", "Pflege"],
+  "deadline": "2027-02-20",
+  "ampel": "green",
+  "ampelText": "umkehrbar – Gesetz kann angepasst werden",
+  "stats": {"pro": 66, "contra": 22, "neutral": 12, "total": 5410},
+  "decisionMaker": "Deutscher Bundestag, Ausschuss für Gesundheit",
+  "blick2050": {
+    "summary": "Bis 2050 steigt der Pflegebedarf stark. Arbeitsbedingungen beeinflussen, wie viele Menschen im Beruf bleiben.",
+    "details": [
+      "Prognose: rund 2,3 Mio. zusätzliche Pflegebedürftige bis 2050 (Beispiel)",
+      "Kurzfristige Dienstplanänderungen gelten als häufiger Grund für Berufsausstieg (Beispiel)"
+    ],
+    "label": "Daten, keine Empfehlung"
+  },
+  "corpus": [
+    {"id": "1", "title": "Gesetzentwurf Pflegearbeitszeit", "text": "Der Entwurf sieht vor, dass Dienstpläne mindestens vier Wochen im Voraus feststehen. Kurzfristiges Einspringen soll mit einem Zuschlag von 30 % vergütet werden.", "source": "Gesetzentwurf Pflegearbeitszeitgesetz, § 3 (Beispiel)"},
+    {"id": "2", "title": "Verband der Krankenhausträger", "text": "Krankenhausträger warnen, starre Pläne könnten bei Personalausfällen zu Bettensperrungen führen. Mehrkosten werden auf 1,2 Mrd. Euro pro Jahr geschätzt.", "source": "Verband der Krankenhausträger, Stellungnahme 2026 (Beispiel)"},
+    {"id": "3", "title": "Pflegeberufe-Befragung", "text": "In einer Befragung gaben 58 % der Pflegekräfte an, mindestens einmal pro Woche aus dem Frei geholt zu werden.", "source": "Befragung Pflegeberufe 2026 (Beispiel)"},
+    {"id": "4", "title": "Pflegekassen", "text": "Die Pflegekassen sehen die Finanzierung der Zuschläge ungeklärt und befürchten steigende Beiträge.", "source": "Spitzenverband der Pflegekassen, 2026 (Beispiel)"}
+  ]
+}

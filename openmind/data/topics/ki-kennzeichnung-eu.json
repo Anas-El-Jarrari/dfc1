@@ -1,0 +1,41 @@
+{
+  "id": "ki-kennzeichnung-eu",
+  "title": "Kennzeichnung von KI-Inhalten",
+  "shortTitle": "KI-Kennzeichnung",
+  "level": "eu",
+  "location": "EU",
+  "tags": ["Medien", "Technologie"],
+  "deadline": "2027-01-15",
+  "ampel": "yellow",
+  "ampelText": "schwer umkehrbar – EU-Verordnung",
+  "stats": {"pro": 72, "contra": 18, "neutral": 10, "total": 8120},
+  "decisionMaker": "Europäisches Parlament, Ausschuss für Binnenmarkt",
+  "blick2050": {
+    "summary": "Transparenz bei KI stärkt das Vertrauen in digitale Medien langfristig.",
+    "details": [
+      "Falschinformationen durch KI könnten um 40 % sinken (Modellrechnung, Beispiel)",
+      "Demokratische Resilienz: informierte Bürger*innen erkennen Manipulation besser (Beispiel)"
+    ],
+    "label": "Daten, keine Empfehlung"
+  },
+  "corpus": [
+    {
+      "id": "1",
+      "title": "EU AI Act",
+      "text": "Der EU AI Act verpflichtet Anbieter von KI-generierten Inhalten ab 2025 zur transparenten Kennzeichnung. Deepfakes müssen als solche erkennbar sein.",
+      "source": "EU AI Act, Art. 50 (Beispiel)"
+    },
+    {
+      "id": "2",
+      "title": "Digitalverband Bitkom",
+      "text": "Der Digitalverband Bitkom befürchtet Wettbewerbsnachteile für europäische Unternehmen gegenüber US-Plattformen, die keiner EU-Regulierung unterliegen.",
+      "source": "Bitkom e.V., Stellungnahme EU AI Act 2026 (Beispiel)"
+    },
+    {
+      "id": "3",
+      "title": "Reuters Institute",
+      "text": "Laut Reuters Institute Digital News Report 2026 vertrauen 67 % der Befragten KI-generierten Nachrichten weniger, wenn sie nicht eindeutig gekennzeichnet sind.",
+      "source": "Reuters Institute, Digital News Report 2026 (Beispiel)"
+    }
+  ]
+}

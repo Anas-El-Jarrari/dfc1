@@ -1,0 +1,60 @@
+{
+  "id": "radwege-bilk",
+  "title": "Neue Radwege in Bilk",
+  "shortTitle": "Radwege Bilk",
+  "level": "stadt",
+  "location": "Düsseldorf-Bilk",
+  "tags": ["Verkehr", "Umwelt"],
+  "deadline": "2026-11-30",
+  "ampel": "green",
+  "ampelText": "umkehrbar – Radwege lassen sich zurückbauen",
+  "stats": {"pro": 54, "contra": 38, "neutral": 8, "total": 1284},
+  "decisionMaker": "Stadtrat Düsseldorf, Ausschuss für Mobilität",
+  "blick2050": {
+    "summary": "Weniger Autoverkehr senkt die CO₂-Emissionen. Mehr Grün mindert Hitzeinseln.",
+    "details": [
+      "Radverkehr statt PKW: bis zu 220 g CO₂ pro km eingespart (Beispiel)",
+      "Baumscheiben auf ehemaligen Parkplätzen könnten Hitze im Sommer um 2°C senken (Beispiel)",
+      "Langfristig weniger Feinstaub und Lärm im Quartier (Beispiel)"
+    ],
+    "label": "Daten, keine Empfehlung"
+  },
+  "corpus": [
+    {
+      "id": "1",
+      "title": "Ratsvorlage MOB/123/2026",
+      "text": "Die Stadt Düsseldorf plant auf der Bilker Allee und zwei Nebenstraßen geschützte Radwege auf 2,4 km Gesamtlänge. Die Bahnradwege sollen durch physische Trennung (Poller) vom Kfz-Verkehr abgegrenzt werden.",
+      "source": "Ratsvorlage MOB/123/2026, S. 3 (Beispiel)"
+    },
+    {
+      "id": "2",
+      "title": "Parkraumgutachten Bilk",
+      "text": "Dafür sollen rund 120 Parkplätze wegfallen oder in eine Quartiersgarage an der Friedrichstraße verlegt werden. Die Auslastung der Garage beträgt derzeit 42 %.",
+      "source": "Parkraumgutachten Bilk, S. 14 (Beispiel)"
+    },
+    {
+      "id": "3",
+      "title": "Beteiligungsportal der Stadt",
+      "text": "Bis 30.11. können Bürger*innen online über das Beteiligungsportal oder bei der Bürgerversammlung am 21.11. um 19:00 Uhr im Gemeindezentrum Bilk eine Stellungnahme abgeben.",
+      "source": "Beteiligungsportal der Stadt Düsseldorf (Beispiel)"
+    },
+    {
+      "id": "4",
+      "title": "Verkehrszählung Bilker Allee",
+      "text": "Aktuelle Verkehrszählung: 8.400 Kfz/Tag auf der Bilker Allee, davon 12 % Lieferverkehr und 6 % Pflegedienste. Radfahrende: ca. 1.100/Tag.",
+      "source": "Amt für Verkehrsmanagement Düsseldorf, Zählung 2026 (Beispiel)"
+    },
+    {
+      "id": "5",
+      "title": "Einzelhandelsverband NRW",
+      "text": "Der Einzelhandelsverband befürchtet Umsatzrückgänge von bis zu 20 % durch den Wegfall von Kundenparkplätzen. Vergleichsstudien aus anderen Städten zeigen gemischte Ergebnisse (Berlin: +8 %, München: -4 %).",
+      "source": "Einzelhandelsverband NRW, Stellungnahme 2026 (Beispiel)"
+    },
+    {
+      "id": "6",
+      "title": "ADFC NRW Studie",
+      "text": "Laut ADFC NRW führen baulich getrennte Radwege zu einer Steigerung des Radverkehrsanteils um durchschnittlich 35 % im ersten Jahr. Unfälle mit Radfahrenden sinken um 60 %.",
+      "source": "ADFC NRW, Studie Radwegebau 2025 (Beispiel)"
+    }
+  ]
+}

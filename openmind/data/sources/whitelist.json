@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-11-15",
+  "feedNote": "Land NRW: Der offizielle RSS-Feed liefert seit April 2025 nichts Neues (geprüft 2026-11-15), deshalb ohne Feed.",
+  "note": "Nur diese Quellen dürfen in OpenMind erscheinen oder zitiert werden. Bei Presse zeigen wir nur Titel, Quelle und Link, keinen Textauszug.",
+  "sources": [
+    { "id": "duesseldorf", "name": "Stadt Düsseldorf", "domain": "duesseldorf.de", "kind": "amtlich", "region": "Düsseldorf", "feed": { "type": "html-duesseldorf", "url": "https://www.duesseldorf.de/aktuelles/news" }, "teaser": true, "summarize": true },
+    { "id": "land-nrw", "name": "Land NRW", "domain": "land.nrw", "kind": "amtlich", "region": "NRW", "teaser": true, "summarize": true },
+    { "id": "landtag-nrw", "name": "Landtag NRW", "domain": "landtag.nrw.de", "kind": "amtlich", "region": "NRW", "teaser": true, "summarize": true },
+    { "id": "bundesregierung", "name": "Bundesregierung", "domain": "bundesregierung.de", "kind": "amtlich", "region": "Bund", "feed": { "type": "rss", "url": "https://www.bundesregierung.de/service/rss/breg-de/1151242/feed.xml" }, "teaser": true, "summarize": true },
+    { "id": "bundestag", "name": "Bundestag", "domain": "bundestag.de", "kind": "amtlich", "region": "Bund", "feed": { "type": "rss", "url": "https://www.bundestag.de/static/appdata/includes/rss/aktuellethemen.rss" }, "teaser": true, "summarize": true },
+    { "id": "epetitionen", "name": "Petitionen Bundestag", "domain": "epetitionen.bundestag.de", "kind": "beteiligung", "region": "Bund", "teaser": true, "summarize": true },
+    { "id": "eu-kommission", "name": "EU-Kommission", "domain": "ec.europa.eu", "kind": "amtlich", "region": "EU", "feed": { "type": "rss", "url": "https://ec.europa.eu/commission/presscorner/api/rss?language=de" }, "teaser": true, "summarize": true },
+    { "id": "tagesschau", "name": "tagesschau", "domain": "tagesschau.de", "kind": "presse", "region": "Bund", "feed": { "type": "rss", "url": "https://www.tagesschau.de/inland/index~rss2.xml" }, "teaser": false, "summarize": false },
+    { "id": "wdr", "name": "WDR Rheinland", "domain": "wdr.de", "kind": "presse", "region": "Rheinland", "feed": { "type": "rss", "url": "https://www1.wdr.de/nachrichten/rheinland/uebersicht-rheinland-100.feed" }, "teaser": false, "summarize": false },
+    { "id": "faktenfinder", "name": "tagesschau Faktenfinder", "domain": "tagesschau.de", "kind": "faktencheck", "region": "Bund", "feed": { "type": "rss", "url": "https://www.tagesschau.de/faktenfinder/index~rss2.xml" }, "teaser": false, "summarize": false },
+    { "id": "correctiv", "name": "CORRECTIV Faktencheck", "domain": "correctiv.org", "kind": "faktencheck", "region": "Bund", "teaser": false, "summarize": false },
+    { "id": "openpetition", "name": "openPetition", "domain": "openpetition.de", "kind": "zivilgesellschaft", "region": "Bund", "teaser": true, "summarize": false }
+  ]
+}

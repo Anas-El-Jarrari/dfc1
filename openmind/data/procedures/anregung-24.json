@@ -1,0 +1,20 @@
+{
+  "id": "anregung-24",
+  "kind": "antrag",
+  "title": "Anregung an den Rat",
+  "short": "§ 24 GO NRW",
+  "level": "stadt",
+  "legalBasis": "§ 24 Gemeindeordnung NRW",
+  "recipientHint": "Rat der Stadt Düsseldorf, Ausschuss für Anregungen und Beschwerden",
+  "officialUrl": "https://www.duesseldorf.de/anregungen-und-beschwerden",
+  "explain": "Jede Person darf sich mit Anregungen und Beschwerden an den Rat wenden. Du bekommst eine Eingangsbestätigung und später eine Antwort mit Begründung.",
+  "keywords": ["stadt", "straße", "ampel", "radweg", "spielplatz", "park", "bus", "bahn", "parken", "baum", "müll", "lärm", "zebrastreifen", "schulweg", "quartier", "bilk", "düsseldorf", "kita", "sauber", "beleuchtung", "bank", "toilette"],
+  "fields": [
+    { "key": "ort", "label": "Ort", "question": "Wo genau ist das?", "placeholder": "z. B. Bilker Allee / Merowingerstraße", "chips": [] },
+    { "key": "betroffen", "label": "Wer ist betroffen?", "question": "Wen betrifft es?", "placeholder": "", "chips": ["Kinder", "Ältere Menschen", "Radfahrende", "Anwohnende", "Alle"] },
+    { "key": "ziel", "label": "Was soll passieren?", "question": "Was wünschst du dir konkret?", "placeholder": "z. B. eine Ampel oder einen Zebrastreifen prüfen", "chips": [] }
+  ],
+  "salutation": "Sehr geehrte Damen und Herren,",
+  "opening": "hiermit wende ich mich gemäß § 24 der Gemeindeordnung NRW mit folgender Anregung an den Rat der Stadt Düsseldorf.",
+  "closing": "Ich bitte um eine Eingangsbestätigung und um Mitteilung, welcher Ausschuss sich mit meiner Anregung befasst."
+}

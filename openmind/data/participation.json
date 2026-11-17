@@ -1,0 +1,53 @@
+{
+  "petitions": [
+    {
+      "id": "pet-platanen",
+      "title": "Platanen an der Corneliusstraße erhalten",
+      "level": "stadt",
+      "supporters": 1842,
+      "goal": 3000,
+      "deadline": "2026-11-28",
+      "pro": ["Gegengutachten: 9 Bäume rettbar", "Kühlen das Quartier im Sommer", "Ersatz braucht 40–60 Jahre"],
+      "contra": ["Bruchgefahr bei Sturm laut Bauamt", "Sicherungsschnitt kostet ca. 48.000 €", "Haftungsrisiko für die Stadt"]
+    }
+  ],
+  "officialSurveys": [
+    {
+      "id": "off-mobilitaet",
+      "title": "Mobilitätsbefragung Bilk",
+      "by": "Stadt Düsseldorf (Beispiel)",
+      "deadline": "2026-12-15",
+      "responses": 2104,
+      "pro": ["Repräsentative Stichprobe", "Ergebnis fließt in Ratsvorlage"],
+      "contra": ["Nur online und per Post", "Fragen vorab nicht öffentlich diskutiert"]
+    }
+  ],
+  "citizenSurveys": [
+    {
+      "id": "eigene-spielplatz",
+      "title": "Spielplatz Fichtenstraße: Was fehlt?",
+      "by": "Bürger-Umfrage (Beispiel)",
+      "question": "Wie bewertest du den Spielplatz an der Fichtenstraße?",
+      "options": ["gut", "eher gut", "eher schlecht", "schlecht"],
+      "seed": [5, 4, 3, 2],
+      "pro": ["Schnell eingeholte Rückmeldung", "Anwohnende kennen den Ort"],
+      "contra": ["Nicht repräsentativ", "Wer keine App hat, fehlt"]
+    }
+  ],
+  "initiatives": [
+    {
+      "id": "init-hitze",
+      "title": "Hitzeschutz in Bilker Schulen",
+      "status": "Unterschriften sammeln",
+      "supporters": 214,
+      "needed": 500,
+      "pro": ["Klassenräume über 30 °C im Sommer", "Gesundheit der Kinder"],
+      "contra": ["Kosten für Verschattung", "Bauzeit in Schuljahr"]
+    }
+  ],
+  "volunteering": [
+    { "id": "v1", "title": "Bürgerjury Verkehr", "time": "2 Abende", "type": "Mitentscheiden" },
+    { "id": "v2", "title": "Baumpatenschaft Bilk", "time": "1 Std./Woche", "type": "Umwelt" },
+    { "id": "v3", "title": "Digital-Sprechstunde im Seniorentreff", "time": "monatlich", "type": "Helfen" }
+  ]
+}
